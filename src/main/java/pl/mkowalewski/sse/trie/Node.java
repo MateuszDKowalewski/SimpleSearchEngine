@@ -7,7 +7,10 @@ import java.util.stream.Collectors;
 
 class Node {
 
+  private static int nextIndex = 0;
+
   private final UUID uuid;
+  private int index;
 
   private Map<Character, Node> edges = new HashMap<>();
   private boolean isWord;
@@ -21,6 +24,7 @@ class Node {
   public Node() {
     isWord = false;
     uuid = UUID.randomUUID();
+    index = nextIndex++;
   }
 
   public void addSuffix(String s) {
@@ -39,7 +43,7 @@ class Node {
 
   @Override
   public String toString() {
-    String s = "Node" + uuid
+    String s = "Node " + index
         + "{ edges = " + edgesToString()
         + ", isWord = " + isWord
         + "}";
