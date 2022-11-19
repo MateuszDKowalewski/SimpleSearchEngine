@@ -47,7 +47,6 @@ class Node {
     sb.append("\n");
     edges.values().forEach(node -> {
       sb.append(node.toString());
-      sb.append("\n");
     });
     return sb.toString();
   }
