@@ -33,12 +33,6 @@ class Node {
     return edges.get(current).isSuffixPresent(suffix);
   }
 
-  public Node() {
-    isWord = false;
-    uuid = UUID.randomUUID();
-    index = nextIndex++;
-  }
-
   public void addSuffix(String suffix) {
     if (suffix.length() == 0) {
       isWord = true;
@@ -51,6 +45,12 @@ class Node {
     } else {
       edges.put(current, withWord(suffix));
     }
+  }
+
+  public Node() {
+    isWord = false;
+    uuid = UUID.randomUUID();
+    index = nextIndex++;
   }
 
   private String getNextSuffix(String suffix) {
