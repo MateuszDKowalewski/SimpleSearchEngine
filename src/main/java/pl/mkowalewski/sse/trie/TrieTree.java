@@ -9,7 +9,11 @@ public class TrieTree {
   }
 
   public void addWord(String s) {
-
+    root.addSuffix(s);
   }
 
+  @Override
+  public String toString() {
+    return root.toString();
+  }
 }
