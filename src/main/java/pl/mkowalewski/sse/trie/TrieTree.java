@@ -8,6 +8,10 @@ public class TrieTree {
     root = new Node();
   }
 
+  public boolean isWordPresent(String word) {
+    return root.isSuffixPresent(word);
+  }
+
   public void addWord(String s) {
     root.addSuffix(s);
   }

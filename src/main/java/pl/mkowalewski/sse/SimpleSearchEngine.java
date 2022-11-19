@@ -12,6 +12,11 @@ class SimpleSearchEngine {
     t.addWord("las");
     t.addWord("loch");
     System.out.println(t);
+    System.out.println();
+    System.out.println();
+    System.out.println("mapa: " + t.isWordPresent("mapa"));
+    System.out.println("mapy: " + t.isWordPresent("mapy"));
+    System.out.println("test: " + t.isWordPresent("test"));
   }
 
 }

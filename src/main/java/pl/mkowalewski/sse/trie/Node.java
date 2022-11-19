@@ -21,24 +21,40 @@ class Node {
     return node;
   }
 
+  public boolean isSuffixPresent(String suffix) {
+    if (suffix.length() == 0 && isWord) {
+      return true;
+    }
+    Character current = suffix.charAt(0);
+    suffix = getNextSuffix(suffix);
+    if (!edges.containsKey(current)) {
+      return false;
+    }
+    return edges.get(current).isSuffixPresent(suffix);
+  }
+
   public Node() {
     isWord = false;
     uuid = UUID.randomUUID();
     index = nextIndex++;
   }
 
-  public void addSuffix(String s) {
-    if (s.length() == 0) {
+  public void addSuffix(String suffix) {
+    if (suffix.length() == 0) {
       isWord = true;
       return;
     }
-    Character current = s.charAt(0);
-    String suffix = s.substring(1);
+    Character current = suffix.charAt(0);
+    suffix = getNextSuffix(suffix);
     if (edges.containsKey(current)) {
       edges.get(current).addSuffix(suffix);
     } else {
       edges.put(current, withWord(suffix));
     }
+  }
+
+  private String getNextSuffix(String suffix) {
+    return suffix.length() > 1 ? suffix.substring(1) : "";
   }
 
   @Override
@@ -62,5 +78,4 @@ class Node {
         .collect(Collectors.joining(", "));
     return "[" + s + "]";
   }
-
 }
