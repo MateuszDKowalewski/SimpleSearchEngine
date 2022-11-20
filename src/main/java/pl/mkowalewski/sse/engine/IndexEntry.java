@@ -9,8 +9,8 @@ import lombok.Getter;
 @AllArgsConstructor
 class IndexEntry {
 
-  private Long documentId;
+  private String documentId;
   private String content;
-  private float tfIdfScore;
+  private Float tfIdfScore;
 
 }
