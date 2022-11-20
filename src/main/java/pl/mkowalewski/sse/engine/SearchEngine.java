@@ -2,7 +2,7 @@ package pl.mkowalewski.sse.engine;
 
 import java.util.List;
 
-interface SearchEngine {
+public interface SearchEngine {
   /**
    * Add a document to the index
    *
