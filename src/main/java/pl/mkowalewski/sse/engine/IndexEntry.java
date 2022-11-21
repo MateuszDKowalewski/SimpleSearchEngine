@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-class IndexEntry {
+public class IndexEntry {
 
   private String documentId;
   private String content;
