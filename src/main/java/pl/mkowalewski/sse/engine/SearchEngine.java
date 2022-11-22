@@ -3,6 +3,7 @@ package pl.mkowalewski.sse.engine;
 import java.util.List;
 
 public interface SearchEngine {
+
   /**
    * Add a document to the index
    *
@@ -10,6 +11,7 @@ public interface SearchEngine {
    * @param content content of the document
    */
   void indexDocument(String id, String content);
+
   /**
    * Search the index for the given term
    *
@@ -17,4 +19,12 @@ public interface SearchEngine {
    * @return sorted list of search results containing the given term
    */
   List<IndexEntry> search(String term);
+
+  default String normalizeString(String document) {
+    String response = document.toLowerCase();
+    response = response.replaceAll("[^a-zA-Z]", " ");
+    response = response.trim().replaceAll(" +", " ");
+    return response;
+  }
+
 }

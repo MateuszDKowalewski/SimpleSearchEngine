@@ -16,6 +16,7 @@ public class HashMapSearchEngine implements SearchEngine {
 
   @Override
   public void indexDocument(String id, String content) {
+    content = normalizeString(content);
     documents.put(id, content);
     Stream.of(content.split(" "))
         .forEach(word -> indexWord(id, word));
