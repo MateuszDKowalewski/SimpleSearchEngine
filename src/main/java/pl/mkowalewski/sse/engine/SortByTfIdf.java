@@ -1,6 +1,7 @@
 package pl.mkowalewski.sse.engine;
 
 import java.util.Comparator;
+import pl.mkowalewski.sse.engine.dto.IndexEntry;
 
 class SortByTfIdf implements Comparator<IndexEntry> {
 

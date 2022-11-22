@@ -1,4 +1,4 @@
-package pl.mkowalewski.sse.engine;
+package pl.mkowalewski.sse.engine.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -8,8 +8,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import pl.mkowalewski.sse.engine.dto.IndexEntry;
 
-public class HashMapSearchEngine implements SearchEngine {
+class HashMapSearchEngine implements SearchEngine {
 
   Map<String, String> documents = new HashMap<>();
   Map<String, Map<String, Integer>> invertedIndexMap = new HashMap<>();

@@ -1,8 +1,9 @@
 package pl.mkowalewski.sse.engine;
 
 import java.util.List;
+import pl.mkowalewski.sse.engine.dto.IndexEntry;
 
-public interface SearchEngine {
+interface SearchEngine {
 
   /**
    * Add a document to the index
