@@ -1,4 +1,4 @@
-package pl.mkowalewski.sse.performence;
+package pl.mkowalewski.sse.engine;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -17,9 +17,7 @@ import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import pl.mkowalewski.sse.engine.HashMapSearchEngine;
 import pl.mkowalewski.sse.engine.dto.IndexEntry;
-import pl.mkowalewski.sse.engine.SearchEngine;
 
 class PerformancesTest {
 
