@@ -1,5 +1,6 @@
 package pl.mkowalewski.sse.engine;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -23,9 +24,11 @@ public class HashMapSearchEngine implements SearchEngine {
   @Override
   public List<IndexEntry> search(String term) {
     Map<String, Integer> countInDocuments = invertedIndexMap.getOrDefault(term, new HashMap<>());
-    return countInDocuments.keySet().stream()
+    List<IndexEntry> response = countInDocuments.keySet().stream()
         .map(key -> prepareIndexEntry(key, countInDocuments))
         .collect(Collectors.toList());
+    Collections.sort(response, new SortByTfIdf());
+    return response;
   }
 
   private void indexWord(String documentId, String word) {
