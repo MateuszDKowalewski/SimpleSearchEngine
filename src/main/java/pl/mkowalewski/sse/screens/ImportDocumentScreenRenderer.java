@@ -17,7 +17,7 @@ class ImportDocumentScreenRenderer implements ScreenRenderer {
   @Override
   public void render() throws IOException {
     tg.putString(1, 1, "Simple search engine by Mateusz Kowalewski", SGR.BOLD);
-    tg.putString(1, 2, "ImportDocumentScreenRenderer", SGR.BOLD);
+    tg.putString(1, 2, "Not implemented yet", SGR.BOLD);
     screen.refresh();
   }
 
