@@ -1,0 +1,6 @@
+proin - [1, 2, 3, 4, 5]
+habitasse - [1, 2, 3, 5]
+dictumst - [1, 3, 5]
+temple - [1]
+escape - [2, 5]
+tempt - [5]
