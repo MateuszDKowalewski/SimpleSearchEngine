@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Stream;
@@ -45,7 +47,10 @@ class PerformancesTest {
     SearchEngine se = initHashMapSearchEngine();
 
     // when
+    LocalDateTime start = LocalDateTime.now();
     List<IndexEntry> result = se.search(word);
+    LocalDateTime end = LocalDateTime.now();
+    System.out.println("Search time: " + ChronoUnit.NANOS.between(start, end) + "ns");
 
     // then
     assertEquals(documentIds.size(), result.size());
@@ -55,12 +60,15 @@ class PerformancesTest {
   }
 
   private SearchEngine initHashMapSearchEngine() throws IOException {
+    LocalDateTime start = LocalDateTime.now();
     SearchEngine se = new HashMapSearchEngine();
     indexDocument(se, DOC_1);
     indexDocument(se, DOC_2);
     indexDocument(se, DOC_3);
     indexDocument(se, DOC_4);
     indexDocument(se, DOC_5);
+    LocalDateTime end = LocalDateTime.now();
+    System.out.println("Index time: " + ChronoUnit.NANOS.between(start, end) + "ns");
     return se;
   }
 
