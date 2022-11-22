@@ -32,7 +32,6 @@ class MainScreenRenderer implements ScreenRenderer {
     if(currentMenuPosition > 3) {
       currentMenuPosition -= 4;
     }
-    System.out.println(currentMenuPosition);
   }
 
   @Override
@@ -41,7 +40,6 @@ class MainScreenRenderer implements ScreenRenderer {
     if(currentMenuPosition < 0) {
       currentMenuPosition += 4;
     }
-    System.out.println(currentMenuPosition);
   }
 
   @Override
