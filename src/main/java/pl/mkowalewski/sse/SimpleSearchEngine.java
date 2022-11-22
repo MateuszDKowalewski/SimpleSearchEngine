@@ -7,8 +7,10 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import java.io.IOException;
-import pl.mkowalewski.sse.screens.MainScreenRenderer;
+import java.util.Map;
+import pl.mkowalewski.sse.screens.ScreenEnum;
 import pl.mkowalewski.sse.screens.ScreenRenderer;
+import pl.mkowalewski.sse.screens.ScreenRendererFactory;
 
 class SimpleSearchEngine {
 
@@ -17,7 +19,8 @@ class SimpleSearchEngine {
     Screen screen = new TerminalScreen(terminal);
     TextGraphics tg = screen.newTextGraphics();
     screen.startScreen();
-    ScreenRenderer screenRenderer = new MainScreenRenderer(screen, tg);
+    Map<ScreenEnum, ScreenRenderer> screens = ScreenRendererFactory.getScreens(screen, tg);
+    ScreenRenderer screenRenderer = screens.get(ScreenEnum.MAIN);
     boolean keepRunning = true;
 
     screenRenderer.render();
