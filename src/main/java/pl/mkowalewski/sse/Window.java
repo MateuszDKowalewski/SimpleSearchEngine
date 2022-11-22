@@ -54,9 +54,11 @@ public class Window {
             break;
           case Backspace:
             screenRenderer.backspacePressed();
+            screenRenderer.render();
             break;
           default:
             screenRenderer.otherKeyPressed(keyStroke);
+            screenRenderer.render();
             break;
         }
       }
@@ -67,11 +69,6 @@ public class Window {
   public void setScreen(ScreenEnum s) {
     screen.clear();
     screenRenderer = screens.get(s);
-    try {
-      screenRenderer.render();
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
   }
 
   private Window() {
