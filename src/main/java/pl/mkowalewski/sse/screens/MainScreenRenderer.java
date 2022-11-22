@@ -6,6 +6,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
+import pl.mkowalewski.sse.Window;
 
 @RequiredArgsConstructor
 class MainScreenRenderer implements ScreenRenderer {
@@ -45,7 +46,20 @@ class MainScreenRenderer implements ScreenRenderer {
 
   @Override
   public void enterPressed() {
-
+    switch (currentMenuPosition) {
+      case 0:
+        Window.getInstance().setScreen(ScreenEnum.SEARCH_ENGINE);
+        break;
+      case 1:
+        Window.getInstance().setScreen(ScreenEnum.IMPORT_DOCUMENT);
+        break;
+      case 2:
+        Window.getInstance().setScreen(ScreenEnum.CREATE_DOCUMENT);
+        break;
+      case 3:
+        Window.getInstance().setScreen(ScreenEnum.SEARCH_PHRASE);
+        break;
+    }
   }
 
   @Override

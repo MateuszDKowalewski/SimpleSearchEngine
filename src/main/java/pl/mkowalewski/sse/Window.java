@@ -18,13 +18,13 @@ public class Window {
 
   private Terminal terminal;
   private Screen screen;
-  private TextGraphics tg;
+  private TextGraphics textGraphics;
 
   private Map<ScreenEnum, ScreenRenderer> screens;
   private ScreenRenderer screenRenderer;
   private boolean keepRunning;
 
-  public static Window getInstance() throws IOException {
+  public static Window getInstance() {
     if (INSTANCE == null) {
       INSTANCE = new Window();
     }
@@ -64,15 +64,30 @@ public class Window {
     screen.stopScreen();
   }
 
-  private Window() throws IOException {
-    terminal = new DefaultTerminalFactory().createTerminal();
-    screen = new TerminalScreen(terminal);
-    tg = screen.newTextGraphics();
-    screen.startScreen();
-    screens = ScreenRendererFactory.getScreens(screen, tg);
-    screens.get(ScreenEnum.MAIN);
-    keepRunning = true;
-    screenRenderer = screens.get(ScreenEnum.MAIN);
+  public void setScreen(ScreenEnum s) {
+    screen.clear();
+    screenRenderer = screens.get(s);
+    try {
+      screenRenderer.render();
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+  }
+
+  private Window() {
+    try {
+      terminal = new DefaultTerminalFactory().createTerminal();
+      screen = new TerminalScreen(terminal);
+      textGraphics = screen.newTextGraphics();
+      screen.startScreen();
+      screens = ScreenRendererFactory.getScreens(screen, textGraphics);
+      screens.get(ScreenEnum.MAIN);
+      keepRunning = true;
+      screenRenderer = screens.get(ScreenEnum.MAIN);
+    } catch (IOException e) {
+      e.printStackTrace();
+      throw new RuntimeException(e);
+    }
   }
 
 }

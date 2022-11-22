@@ -6,6 +6,7 @@ import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.screen.Screen;
 import java.io.IOException;
 import lombok.RequiredArgsConstructor;
+import pl.mkowalewski.sse.Window;
 
 @RequiredArgsConstructor
 class ImportDocumentScreenRenderer implements ScreenRenderer {
@@ -37,7 +38,7 @@ class ImportDocumentScreenRenderer implements ScreenRenderer {
 
   @Override
   public void backspacePressed() {
-
+    Window.getInstance().setScreen(ScreenEnum.MAIN);
   }
 
   @Override
