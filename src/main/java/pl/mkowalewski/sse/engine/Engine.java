@@ -9,7 +9,7 @@ public class Engine {
 
   private SearchEngine searchEngine;
 
-  public Engine getInstance() {
+  public static Engine getInstance() {
     if (INSTANCE == null) {
       INSTANCE = new Engine();
     }
